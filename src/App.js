@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Addproduct from './pages/Addproduct';
 import ProductAdd from './pages/Addproduct/ProductAdd';
+import Allcustomers from './pages/Allcustomers';
 
 function App() {
    const isSignedIn = localStorage.getItem("access_token") || false;
@@ -34,24 +35,13 @@ function App() {
             <ProductAdd />
           </Protected>
         } />
+        <Route path={"/Allcustomers"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <Allcustomers />
+          </Protected>
+        } />
       </Routes>
     </BrowserRouter>
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
   );
 }
 
