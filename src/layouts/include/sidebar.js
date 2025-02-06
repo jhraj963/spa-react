@@ -58,7 +58,7 @@ function Sidebar() {
                 <ul className="nav flex-column sub-menu">
                 <li onClick={activeMenu} className={`nav-item ${isLinkActive("/Allcustomers") ? 'active' : ''}`}>
                   <Link to="/Allcustomers" className="sidebar-link nav-link">
-                    <span className="menu-title">All Customers</span>
+                    <span className="menu-title">All Users</span>
                   </Link>
                 </li>
                 </ul>

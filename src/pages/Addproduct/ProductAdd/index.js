@@ -57,7 +57,6 @@ function ProductAdd() {
                 apiUrl = `/addproduct/create`;
             }
 
-            // Make sure to send formData, not the raw inputs
             let response = await axios({
                 method: 'post',
                 url: `${process.env.REACT_APP_API_URL}${apiUrl}`,

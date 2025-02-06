@@ -7,13 +7,11 @@ import axios from 'axios';
 function Header() {
     let userdata = localStorage.getItem("front_userdata");
 
-    // Check if 'userdata' is a string before parsing, otherwise use it as is
+
     let parsedUserData = null;
     try {
         parsedUserData = userdata ? JSON.parse(userdata) : null;
     } catch (e) {
-        // If it's already an object (or the string is malformed), handle the error gracefully
-        console.error("Error parsing userdata:", e);
         parsedUserData = userdata;
     }
     

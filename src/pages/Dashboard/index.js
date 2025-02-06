@@ -4,13 +4,13 @@ import axios from '../../components/axios';
 import { Link } from 'react-router-dom';
 
 function Dashboard() {
-  const [data, setData] = useState([]); // All products
-    const [filteredData, setFilteredData] = useState([]); // Filtered products based on price
+  const [data, setData] = useState([]); 
+    const [filteredData, setFilteredData] = useState([]); 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    // State for price filtering using range slider
-    const [priceRange, setPriceRange] = useState([0, 5000]); // Default range from 0 to 5000
+  
+    const [priceRange, setPriceRange] = useState([0, 5000]); 
 
     useEffect(() => {
         getDatas();
@@ -20,7 +20,7 @@ function Dashboard() {
         try {
             const response = await axios.get(`${process.env.REACT_APP_API_URL}/addproduct/`);
             setData(response.data.data);
-            setFilteredData(response.data.data); // Initialize with all products
+            setFilteredData(response.data.data); 
         } catch (err) {
             setError("Failed to fetch products.");
         } finally {
@@ -34,19 +34,22 @@ function Dashboard() {
           <>
               <div className="product-view">
                 <div className="container-fluid">
-                    <h2>All Products</h2>
+                    <h2>All Products With Details</h2>
 
-                    {/* Flexbox to organize the product list and price filter */}
+
                     <div className="d-flex">
-                        {/* Product List (Full Width) */}
+
                         <div className="col-12 col-md-9">
                             <div className="row">
                                 {filteredData.length > 0 ? (
                                     filteredData.map((d) => (
+                                      
                                         <div className="col-md-3" key={d.id}>
+                                              <Link to={`/product-detail/${d.id}`}>
                                             <div className="product-item">
                                                 <div className="product-title">
-                                                    <Link to={`/product-detail/${d.id}`}>{d.productname}</Link>
+                                              
+                                                    <div>{d.productname}</div>
                                                     <div className="ratting">
                                                         {[...Array(5)].map((_, index) => (
                                                             <i key={index} className="fa fa-star"></i>
@@ -70,6 +73,7 @@ function Dashboard() {
                                                     <h3><span>৳</span>{d.price || 99}</h3>                                             
                                                 </div>
                                             </div>
+                                              </Link>
                                         </div>
                                     ))
                                 ) : (

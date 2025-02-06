@@ -42,7 +42,6 @@ function ProductDetails() {
                     <div className="row">
                         {product && (
                             <>
-                                {/* Product Images Section */}
                                 <div className="col-lg-6">
                                     <div className="product-images">
                                         {product.photo.split(',').map((src, i) => (
@@ -57,7 +56,6 @@ function ProductDetails() {
                                     </div>
                                 </div>
 
-                                {/* Product Details Section */}
                                 <div className="col-lg-6">
                                     <h2>{product.productname}</h2>
                                     <p>{product.description}</p>

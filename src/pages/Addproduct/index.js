@@ -64,7 +64,6 @@ function Addproduct() {
                                                         }
                                                     </td>
                                                     <td>
-                                                        <Link to={`/Addproduct/edit/${d.id}`} className='btn btn-info' >Edit</Link>
                                                         <button type='button' onClick={() => deleteData(d.id)} className='btn btn-danger'>Delete</button>
                                                     </td>
                                                 </tr>
