@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Addproduct from './pages/Addproduct';
 import ProductAdd from './pages/Addproduct/ProductAdd';
+import ProductDetails from './pages/ProductDetails';
 import Allcustomers from './pages/Allcustomers';
 
 function App() {
@@ -30,9 +31,14 @@ function App() {
             <ProductAdd />
           </Protected>
         } />
-            <Route path={"/addproduct/edit/:id"} element={
+        <Route path={"/addproduct/edit/:id"} element={
           <Protected isSignedIn={isSignedIn} >
             <ProductAdd />
+          </Protected>
+        } />
+        <Route path={"/product-detail/:productId"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <ProductDetails />
           </Protected>
         } />
         <Route path={"/Allcustomers"} element={
